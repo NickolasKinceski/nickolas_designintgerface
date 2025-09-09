@@ -1,7 +1,7 @@
 body {
     font-family: ArialBlack, sans-serif;
     margin: 0;
-    background-color: #abccb4;
+    background-color: #4b7070;
     padding: 0;
     text-align: center;
 }
@@ -23,7 +23,7 @@ main {
 }
 
 footer {
-    background-color: #bff5cd;
+    background-color: #419310;
     padding: 15px;
     margin-top: 30px;
 }
@@ -51,7 +51,7 @@ footer {
 }
 
 .bases {
-    background-color: #4a8c5b;
+    background-color: #1c621b;
     border-radius: 12px;
     padding: 20px;
     width: 250px;
