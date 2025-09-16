@@ -49,9 +49,10 @@
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2025 Locadora IFPR - Todos os direitos reservados</p>
+        <p>&copy; 2025 FAB - Todos os direitos reservados</p>
     </footer>
 
 </body>
 
 </html>
+
