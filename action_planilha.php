@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     // URL do Apps Script
     $url = "https://script.google.com/macros/s/AKfycbyDdXUQGaa-EkGyOKLBZyC__ZitZL5zElCeT1QlwKCvy_9kZaDdTJuALLmWuuyuyB8/exec";
