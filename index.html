@@ -23,21 +23,60 @@
 
     <!-- Conteúdo principal -->
     <main>
-        <h1>Bem-vindo ao Site da Força Aérea Brasileira (FAB)</h1>
-        <p>Conheça nossas aeronaves.</p>
+  <h1>Bem-vindo à Locadora de Veículos</h1>
+  <p>Encontre o carro ideal para sua viagem, trabalho ou lazer.</p>
 
-        <div class="Aeronaves">
-            <img src="https://www.airway.com.br/wp-content/uploads/2016/02/F-5_FAB_02.jpg"
-                alt="Caça de Interceptação e Vigilância (Northrop F-5 Tiger II)">
+  <div id="conteudo" class="conteudo-scroll">
+    <p>Carregando conteúdo...</p>
+  </div>
+</main>
 
-            <img src="https://res.cloudinary.com/dkkd45ayz/image/upload/f_auto,dpr_auto,q_auto,fl_progressive/w_1.0,h_0.8436842105263157894736842105,c_fill,g_auto/w_1024,h_576,c_scale/optimizely/6cc52fe5-11da-4554-9be1-e19e714dcbc0/gripen-4107_.jpg"
-                alt="Caça Topo de Linha (Saab Jas 39 Gripen E)">
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxaAL11Fc_qvebINSm0Ha8o3h5nZemVDhMfHg3uncrkeq6ngSR4_YCFUrqxgLczR7k/exec"
+async function carregarConteudo() {
+  const container = document.getElementById('conteudo');
+  container.innerHTML = "<p>Carregando conteúdo...</p>";
 
-            <img src="https://live.staticflickr.com/7257/7697898544_0a1bcffddb_b.jpg"
-                alt="Caça de Ataque Leve e Vigilância (Embraer EMB 314 Super Tucano)">
-                
-        </div>
-    <main>
+  try {
+    const res = await fetch(SCRIPT_URL);
+    const dados = await res.json();
+    container.innerHTML = '';
+
+    dados.forEach(item => {
+      const bloco = document.createElement('div');
+      bloco.className = 'bloco-item';
+
+      const titulo = document.createElement('h2');
+      titulo.textContent = item.Título || '';
+      bloco.appendChild(titulo);
+
+      const descricao = document.createElement('p');
+      descricao.textContent = item.Descrição || '';
+      bloco.appendChild(descricao);
+
+      if (item.Url && item.Url.startsWith('http')) {
+        if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
+          const img = document.createElement('img');
+          img.src = item.Url;
+          img.alt = item.Título || 'Imagem';
+          bloco.appendChild(img);
+        } else {
+          const link = document.createElement('a');
+          link.href = item.Url;
+          link.textContent = 'Ver mais';
+          bloco.appendChild(link);
+        }
+      }
+
+      container.appendChild(bloco);
+    });
+  } catch (err) {
+    container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
+  }
+}
+
+carregarConteudo();
+</script>
 
     <!-- Rodapé -->
     <footer>
