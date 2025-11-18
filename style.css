@@ -183,8 +183,8 @@ footer {
 }
 
 .tema-escuro .conteudo-scroll {
-  background: #111821;
-  border-color: #2a3645;
+  background: #050308;
+  border-color: #56595c;
 }
 
 .tema-escuro .bloco-item {
@@ -192,7 +192,7 @@ footer {
 }
 
 .tema-escuro .bloco-item h2 {
-  color: #8db0ff;
+  color: #099609;
 }
 
 /* Toggle no modo escuro */
