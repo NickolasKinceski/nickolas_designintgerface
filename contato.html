@@ -19,9 +19,9 @@
             <a href="contato.html">Contato</a>
             <a href="planilha.html">Planilha</a>
         </nav>
-         <div id="tema-toggle" class="tema-toggle">
-    <div class="bolinha"></div>
-  </div>
+        <div id="tema-toggle" class="tema-toggle">
+            <div class="bolinha"></div>
+        </div>
     </header>
 
     <!-- Conteúdo principal -->
@@ -48,6 +48,23 @@
     <footer>
         <p>&copy; 2025 Força Aérea Brasileira (FAB) - Direitos Reservados</p>
     </footer>
+
+    <!-- SCRIPT DO TEMA ESCURO (adicionado sem alterar o restante do código) -->
+    <script>
+        const toggle = document.getElementById("tema-toggle");
+        const body = document.body;
+
+        let tema = localStorage.getItem("tema") || "tema-claro";
+        if (tema === "tema-escuro") body.classList.add("tema-escuro");
+
+        if (toggle) {
+            toggle.addEventListener("click", () => {
+                body.classList.toggle("tema-escuro");
+                const ativo = body.classList.contains("tema-escuro");
+                localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
+            });
+        }
+    </script>
 
 </body>
 
