@@ -19,33 +19,51 @@
             <a href="contato.html">Contato</a>
             <a href="planilha.html">Planilha</a>
         </nav>
-         <div id="tema-toggle" class="tema-toggle">
-    <div class="bolinha"></div>
-  </div>
+        <div id="tema-toggle" class="tema-toggle">
+            <div class="bolinha"></div>
+        </div>
     </header>
- <!-- coneudo principal -->
-<main>
-    <h1>Nossas Bases</h1>
-    <div class="bases">
+
+    <!-- coneudo principal -->
+    <main>
+        <h1>Nossas Bases</h1>
         <div class="bases">
-            <h2>Base Aérea de Curitiba</h2>
-            <p>Av. Pref. Erasto Gaertner, 834 - Bacacheri, Curitiba - PR, 82510-160</p>
+            <div class="bases">
+                <h2>Base Aérea de Curitiba</h2>
+                <p>Av. Pref. Erasto Gaertner, 834 - Bacacheri, Curitiba - PR, 82510-160</p>
+            </div>
+            <div class="bases">
+                <h2>Base Aérea de Goiás</h2>
+                <p>BR-414, Km 4, s/n Zona Rural, Anápolis - GO, 75024-970</p>
+            </div>
+            <div class="bases">
+                <h2>Base Aérea de São Paulo</h2>
+                <p>Av. Monteiro Lobato, 6365 - Cumbica, Guarulhos - SP, 07184-000</p>
+            </div>
         </div>
-        <div class="bases">
-            <h2>Base Aérea de Goiás</h2>
-            <p>BR-414, Km 4, s/n Zona Rural, Anápolis - GO, 75024-970</p>
-        </div>
-        <div class="bases">
-            <h2>Base Aérea de São Paulo</h2>
-            <p>Av. Monteiro Lobato, 6365 - Cumbica, Guarulhos - SP, 07184-000</p>
-        </div>
-    </div>
-</main>
+    </main>
 
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 Força Aérea Brasileira - Todos os direitos reservados</p>
     </footer>
+
+    <!-- SCRIPT DO TEMA ESCURO (adicionado sem alterar nada do código existente) -->
+    <script>
+        const toggle = document.getElementById("tema-toggle");
+        const body = document.body;
+
+        let tema = localStorage.getItem("tema") || "tema-claro";
+        if (tema === "tema-escuro") body.classList.add("tema-escuro");
+
+        if (toggle) {
+            toggle.addEventListener("click", () => {
+                body.classList.toggle("tema-escuro");
+                const ativo = body.classList.contains("tema-escuro");
+                localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
+            });
+        }
+    </script>
 
 </body>
 
