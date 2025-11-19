@@ -17,9 +17,9 @@
             <a href="contato.html">Contato</a>
             <a href="planilha.html" aria-current="page">Planilha</a>
         </nav>
-         <div id="tema-toggle" class="tema-toggle">
-    <div class="bolinha"></div>
-  </div>
+        <div id="tema-toggle" class="tema-toggle">
+            <div class="bolinha"></div>
+        </div>
     </header>
 
     <main>
@@ -33,7 +33,7 @@
     </footer>
 
     <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuCp21bCC1pipHGtRLYG3-xgMkWdg0oA2LB2n0kRWjdoDJDBlL71cUipnwwJJ09xyH/exec"; // substitua pela sua URL
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuCp21bCC1pipHGtRLYG3-xgMkWdg0oA2LB2n0kRWjdoDJDBlL71cUipnwwJJ09xyH/exec";
 
         async function carregar() {
             const msg = document.getElementById('mensagem');
@@ -83,6 +83,24 @@
 
         carregar();
     </script>
+
+    <!-- SCRIPT DO TEMA ESCURO -->
+    <script>
+        const toggle = document.getElementById("tema-toggle");
+        const body = document.body;
+
+        let tema = localStorage.getItem("tema") || "tema-claro";
+        if (tema === "tema-escuro") body.classList.add("tema-escuro");
+
+        if (toggle) {
+            toggle.addEventListener("click", () => {
+                body.classList.toggle("tema-escuro");
+                const ativo = body.classList.contains("tema-escuro");
+                localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
+            });
+        }
+    </script>
+
 </body>
 
 </html>
